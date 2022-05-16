@@ -7,7 +7,3 @@ tasks:
     command: |
       npm i @angular/cli
       ng s --disable-host-check
-
-    
-
-
