@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
+import { User } from '../model/user.class';
 
 @Component({
   selector: 'app-user',
@@ -8,6 +9,10 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
+
+  user = new User();
+
+
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {}
