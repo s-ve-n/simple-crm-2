@@ -3,6 +3,7 @@ import { Firestore, collectionData, collection } from '@angular/fire/firestore';
 import { doc, setDoc } from 'firebase/firestore';
 import { User } from '../model/user.class';
 import { Observable } from 'rxjs';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -16,7 +17,10 @@ export class DialogAddUserComponent implements OnInit {
   users: Array<any>;
   loading = false;
 
-  constructor(private db: Firestore) {
+  constructor(
+    private db: Firestore,
+    public dialogRef: MatDialogRef<DialogAddUserComponent>
+  ) {
     const coll = collection(db, 'users');
     this.users$ = collectionData(coll);
 
@@ -35,5 +39,6 @@ export class DialogAddUserComponent implements OnInit {
     const coll = collection(this.db, 'users');
     setDoc(doc(coll), this.user.toJSON());
     this.loading = false;
+    this.dialogRef.close();
   }
 }
