@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule,
+    MatProgressBarModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
   ],

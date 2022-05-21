@@ -14,6 +14,7 @@ export class DialogAddUserComponent implements OnInit {
   birthDate: Date;
   users$: Observable<any>;
   users: Array<any>;
+  loading = false;
 
   constructor(private db: Firestore) {
     const coll = collection(db, 'users');
@@ -28,9 +29,11 @@ export class DialogAddUserComponent implements OnInit {
   ngOnInit(): void {}
 
   saveUser() {
+    this.loading = true;
     this.user.birthDate = this.birthDate.getTime();
     console.log('Current user is', this.user);
     const coll = collection(this.db, 'users');
     setDoc(doc(coll), this.user.toJSON());
+    this.loading = false;
   }
 }
