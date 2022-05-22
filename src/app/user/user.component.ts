@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Firestore, collectionData, collection } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { User } from '../model/user.class';
 
@@ -22,8 +24,18 @@ const USER_DATA: Users[] = [
 })
 export class UserComponent implements OnInit {
   user = new User();
+  users$: Observable<any>;
+  users: Array<any>;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private db: Firestore) {
+    const coll = collection(db, 'users');
+    this.users$ = collectionData(coll);
+
+    this.users$.subscribe((newUsers) => {
+      console.log('new update');
+      this.users = newUsers;
+    });
+  }
 
   ngOnInit(): void {}
 

@@ -24,10 +24,10 @@ export class DialogAddUserComponent implements OnInit {
     const coll = collection(db, 'users');
     this.users$ = collectionData(coll);
 
-    this.users$.subscribe((newUsers) => {
-      // alert('new update')
-      this.users = newUsers;
-    });
+    // this.users$.subscribe((newUsers) => {
+    //   // alert('new update')
+    //   this.users = newUsers;
+    // });
   }
 
   ngOnInit(): void {}
