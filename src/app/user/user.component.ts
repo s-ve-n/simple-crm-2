@@ -15,6 +15,7 @@ export interface Users {
   lastName: string;
   birthDate: string;
   city: string;
+  street: string;
 }
 
 @Component({
@@ -32,6 +33,7 @@ export class UserComponent implements OnInit {
       lastName: 'last',
       birthDate: '01.01.2022',
       city: 'city',
+      street: 'street'
     },
   ];
   displayedColumns: string[] = ['firstName', 'lastName', 'birthDate', 'city'];
