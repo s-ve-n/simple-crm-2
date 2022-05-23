@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { User } from '../model/user.class';
+import {formatDate} from '@angular/common';
 
 // export interface Users {
 //   firstName: string;
@@ -47,7 +48,7 @@ export class UserComponent implements OnInit {
   // ];
   displayedColumns: string[] = ['firstName', 'lastName', 'birthDate', 'city'];
   // dataSource = this.USER_DATA;
-  dataSource: Array<any>;
+  // dataSource: Array<any>;
 
   constructor(public dialog: MatDialog, private db: Firestore) {
     const coll = collection(db, 'users');
@@ -56,8 +57,10 @@ export class UserComponent implements OnInit {
     this.users$.subscribe((newUsers) => {
       this.users = newUsers;
       console.log('new update', this.users);
-      this.dataSource = this.users;
-      let date = new Date(1651356000000);
+      console.log(formatDate(this.users[1].birthDate,'yyyy-MM-dd', 'en-US'));
+
+      // this.dataSource = this.users;
+      let date = new Date(this.users[0].birthDate);
       this.bDate = date.toDateString();
     });
   }

@@ -1,11 +1,13 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="users" class="mat-elevation-z8">
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
   <!-- Position Column -->
   <ng-container matColumnDef="firstName">
     <th mat-header-cell *matHeaderCellDef>Name</th>
-    <td mat-cell *matCellDef="let user">{{ user.firstName}} {{user.lastName }}</td>
+    <td mat-cell *matCellDef="let user">
+      {{ user.firstName }} {{ user.lastName }}
+    </td>
   </ng-container>
 
   <!-- Name Column -->
@@ -17,7 +19,9 @@
   <!-- Email Column -->
   <ng-container matColumnDef="birthDate">
     <th mat-header-cell *matHeaderCellDef>Birthdate</th>
-    <td mat-cell *matCellDef="let user">{{ bDate }}</td>
+    <td mat-cell *matCellDef="let user">
+      {{ user.birthDate | date: 'dd.MM.yyyy' }}
+    </td>
   </ng-container>
 
   <!-- City Column -->
