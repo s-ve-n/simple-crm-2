@@ -27,31 +27,30 @@ export class UserComponent implements OnInit {
   users$: Observable<any>;
   users: Array<any>;
   USER_DATA: Users[] = [
-    { firstName: 'plus', lastName: 'minus', birthDate: '123', city: 'city' },
+    {
+      firstName: 'first',
+      lastName: 'last',
+      birthDate: '01.01.2022',
+      city: 'city',
+    },
   ];
+  displayedColumns: string[] = ['firstName', 'lastName', 'birthDate', 'city'];
+  dataSource = this.USER_DATA;
 
   constructor(public dialog: MatDialog, private db: Firestore) {
     const coll = collection(db, 'users');
     this.users$ = collectionData(coll);
 
     this.users$.subscribe((newUsers) => {
-      console.log('new update', this.users);
-
       this.users = newUsers;
+      console.log('new update', this.users);
+      this.dataSource = this.users;
     });
   }
 
-  ngOnInit(): void {
-    // const querySnapshot = getDocs(collection(this.db, 'users'));
-    // querySnapshot.forEach((doc) => {
-    //   console.log(doc.id, ' => ', doc.data());
-    // });
-  }
+  ngOnInit(): void {}
 
   openDialog() {
     this.dialog.open(DialogAddUserComponent);
   }
-
-  displayedColumns: string[] = ['firstName', 'lastName', 'birthDate', 'city'];
-  dataSource = this.USER_DATA;
 }
