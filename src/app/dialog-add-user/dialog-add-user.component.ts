@@ -37,12 +37,12 @@ export class DialogAddUserComponent implements OnInit {
     this.user.birthDate = this.birthDate.getTime();
     console.log('Current user is', this.user);
     // const coll = collection(this.db, 'users');
-    setDoc(doc(this.db, 'users', `${this.users.length+1}`), this.user.toJSON());
+    setDoc(
+      doc(this.db, 'users', `${this.users.length + 1}`),
+      this.user.toJSON()
+    );
     this.loading = false;
     this.dialogRef.close();
     console.log(this.users.length);
   }
-
-
-
 }
