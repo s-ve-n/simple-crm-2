@@ -1,0 +1,21 @@
+mat-card {
+    height: 200px;
+    background-color: rgb(135, 187, 250);
+    color: white;
+    display: flex;
+    align-items: center;
+
+    img {
+        height: 100px;
+        width: 100px;
+        border-radius: 100%;
+    }
+}
+
+.user-details {
+    margin-left: 32px;
+
+    h2 {
+        margin-bottom: 10px;
+    }
+}

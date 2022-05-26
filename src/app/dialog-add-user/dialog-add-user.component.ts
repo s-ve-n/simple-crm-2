@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Firestore, collectionData, collection } from '@angular/fire/firestore';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, updateDoc } from 'firebase/firestore';
 import { User } from '../model/user.class';
 import { Observable } from 'rxjs';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -41,6 +41,10 @@ export class DialogAddUserComponent implements OnInit {
       doc(this.db, 'users', `${this.users.length + 1}`),
       this.user.toJSON()
     );
+    //https://stackoverflow.com/questions/59823739/include-the-document-id-as-a-field-id-in-firestore
+    updateDoc(doc(this.db, 'users', `${this.users.length + 1}`), {
+      id: doc(this.db, 'users', `${this.users.length + 1}`).id,
+    });
     this.loading = false;
     this.dialogRef.close();
     console.log(this.users.length);

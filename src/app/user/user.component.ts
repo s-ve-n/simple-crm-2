@@ -64,11 +64,11 @@ export class UserComponent implements OnInit {
     this.users$.subscribe((newUsers) => {
       this.users = newUsers;
       console.log('new update', this.users);
-      console.log(formatDate(this.users[1].birthDate, 'yyyy-MM-dd', 'en-US'));
+      // console.log(formatDate(this.users[1].birthDate, 'yyyy-MM-dd', 'en-US'));
 
       // this.dataSource = this.users;
-      let date = new Date(this.users[0].birthDate);
-      this.bDate = date.toDateString();
+      // let date = new Date(this.users[0].birthDate);
+      // this.bDate = date.toDateString();
     });
   }
 

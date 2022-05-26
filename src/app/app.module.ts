@@ -22,6 +22,8 @@ import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { MatTableModule } from '@angular/material/table';
     DashboardComponent,
     UserComponent,
     DialogAddUserComponent,
+    UserDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ import { MatTableModule } from '@angular/material/table';
     FormsModule,
     MatProgressBarModule,
     MatTableModule,
+    MatCardModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
   ],
