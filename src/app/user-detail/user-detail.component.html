@@ -2,8 +2,10 @@
   <img src="assets/img/profile.png" alt="" />
   <div class="user-details">
     <h2>{{ user.firstName }} {{ user.lastName }}</h2>
-    {{ user.email }}
-    {{ user.street }}
-    {{ user.zipCode }} {{ user.city }}
+    <div class="user-info">
+      <div>Email: {{ user.email }}</div>
+      <div>Birthdate: {{ user.birthDate | date: "dd.MM.yyyy" }}</div>
+      <div>Address: {{ user.street }}, {{ user.zipCode }} {{ user.city }}</div>
+    </div>
   </div>
 </mat-card>
