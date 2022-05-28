@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { User } from 'src/app/model/user.class';
+import { MatDialog } from '@angular/material/dialog';
+import { EditUserComponent } from '../edit-user/edit-user.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -15,7 +16,8 @@ export class UserDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class UserDetailComponent implements OnInit {
     }
   }
 
-  openDialog() {
-    
+  editUser() {
+    this.dialog.open(EditUserComponent);
   }
 }

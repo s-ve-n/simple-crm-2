@@ -26,6 +26,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MatCardModule } from '@angular/material/card';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
+import { MatMenuModule } from '@angular/material/menu';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     UserComponent,
     DialogAddUserComponent,
     UserDetailComponent,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     MatProgressBarModule,
     MatTableModule,
     MatCardModule,
+    MatMenuModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

@@ -1,7 +1,12 @@
 <mat-card>
-  <button mat-icon-button (click)="(openDialog)">
+  <button mat-icon-button [matMenuTriggerFor]="edit">
     <mat-icon>more_vert</mat-icon>
   </button>
+
+  <mat-menu #edit="matMenu">
+    <button mat-menu-item (click)="editUser()">Edit</button>
+  </mat-menu>
+
   <img src="assets/img/profile.png" alt="" />
   <div class="user-details">
     <h2>{{ user.firstName }} {{ user.lastName }}</h2>
@@ -12,4 +17,3 @@
     </div>
   </div>
 </mat-card>
-
