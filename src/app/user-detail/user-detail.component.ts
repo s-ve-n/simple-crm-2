@@ -38,4 +38,8 @@ export class UserDetailComponent implements OnInit {
         });
     }
   }
+
+  openDialog() {
+    
+  }
 }
