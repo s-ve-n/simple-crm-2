@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Cobalt2",
+    // "workbench.colorTheme": "Gitpod Dark",
     "editor.minimap.enabled": false,
     "redhat.telemetry.enabled": false,
     "workbench.startupEditor": "none",

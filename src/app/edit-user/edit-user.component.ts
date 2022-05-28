@@ -3,7 +3,6 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { User } from '../model/user.class';
 import { Firestore, collectionData, collection } from '@angular/fire/firestore';
 import { doc, setDoc, updateDoc } from 'firebase/firestore';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-edit-user',
