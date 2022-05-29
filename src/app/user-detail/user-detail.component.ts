@@ -41,16 +41,21 @@ export class UserDetailComponent implements OnInit {
     }
   }
 
-  editUser() {
-    const dialog = this.dialog.open(EditUserComponent);
-    dialog.componentInstance.user = new User(this.user.toJSON());
-    dialog.componentInstance.userId = this.userId;
-  }
-
   // editUser() {
-  //   this.dialog.open(EditUserComponent).componentInstance.user = new User(
-  //     this.user.toJSON()
-  //   );
+  //   const dialog = this.dialog.open(EditUserComponent);
+  //   dialog.componentInstance.user = new User(this.user.toJSON());
+  //   dialog.componentInstance.userId = this.userId;
+  // }
+
+  //prettier-ignore
+  // editUser() {
+  //   this.dialog.open(EditUserComponent).componentInstance.user = new User(this.user.toJSON());
   //   this.dialog.open(EditUserComponent).componentInstance.userId = this.userId;
   // }
+
+  editUser() {
+    const dialog = this.dialog.open(EditUserComponent).componentInstance;
+    dialog.user = new User(this.user.toJSON());
+    dialog.userId = this.userId;
+  }
 }
