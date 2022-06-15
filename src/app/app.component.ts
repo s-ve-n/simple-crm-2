@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'simple-crm-2';
 
+  test = 123;
+
   constructor() {}
 }
