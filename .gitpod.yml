@@ -6,4 +6,4 @@ tasks:
   - init: npm i
     command: |
       npm i -g @angular/cli
-      ng s --disable-host-check
+      # ng s --disable-host-check
